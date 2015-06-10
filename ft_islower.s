@@ -1,11 +1,11 @@
-global _ft_isupper
+global _ft_islower
 
 	section .text
 
-_ft_isupper:
-	cmp rdi, 65
+_ft_islower:
+	cmp rdi, 97
 	jl false
-	cmp rdi, 90
+	cmp rdi, 122
 	jg false
 
 	mov rax, 1
