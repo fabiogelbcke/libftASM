@@ -1,5 +1,10 @@
 	global _ft_puts
 
+section .data
+
+newline:   db 	0x0a
+nullerror: db 	"(null)", 10, 0
+
 	section .text
 
 
@@ -8,11 +13,9 @@
 	
 	
 _ft_puts:
-	cmp byte [rdi], 0
-	je is_null
 	mov r8, rdi
-	cmp byte [r8], 0
-	jne print_and_add
+	cmp r8b, 0
+	je is_null
 
 print_and_add:
 	mov rax, WRITE
@@ -23,26 +26,23 @@ print_and_add:
 	inc r8
 	cmp byte [r8], 0
 	jne print_and_add
+	push 10
+	mov rsi ,rsp
 	mov rax, WRITE
 	mov rdi, STDOUT
-	mov rdx, newline.len
-	lea rsi, [rel newline]
+	mov rdx, 1
 	syscall
+	add rsp, 8
 	mov rax, 1
 	ret
+	
 
 is_null:
 	mov rax, WRITE
 	mov rdi, STDOUT
-	lea rsi, [rel nullmsg]
-	mov rdx, nullmsg.len
+	mov rdx, 7
+	lea rsi, [rel nullerror]
 	syscall
 	mov rax, 1
 	ret
 
-	section .data
-	
-nullmsg:	db "(null)", 10
-.len:		equ $ - nullmsg
-newline:	db 10
-.len:		equ $ - newline

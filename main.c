@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <strings.h>
+#include <fcntl.h>
 
 int main(void)
 {
@@ -80,8 +81,10 @@ int main(void)
 		str[i] = 'a';
 	str[10] = '\0';
 	ft_puts(str);
-	printf("ft_puts(NULL) = ");
+	ft_puts("ft_puts(NULL) = ");
 	ft_puts(NULL);
+	ft_puts("ft_puts(\"0\") = ");
+	ft_puts("0");
 	printf("previous string after using ft_bzero(str, 5) and while(*str == 0) {str++;}:\n");
 	ft_bzero(str, 5);
 	while(*str == 0)
@@ -109,4 +112,6 @@ int main(void)
 	str4 = ft_memcpy(str4, str3, 11);
 	printf("str3[5] = '*'; str4 = ft_memcpy(str4, str3, 11);\nstr4 = %s\n", str4);
 	printf("%s\n", ft_strdup(str4));
+	int fd = open("test.txt", O_RDONLY);
+	ft_cat(fd);
 }
