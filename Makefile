@@ -1,28 +1,36 @@
 NAME = libfts.a
-SRC_ASM = 	ft_isupper.s \
-		ft_isascii.s \
+SRC_ASM =	ft_isupper.s \
+	ft_isascii.s \
+	ft_islower.s \
+	ft_isalnum.s \
+	ft_isalpha.s \
+	ft_isdigit.s \
+	ft_isprint.s \
+	ft_tolower.s \
+	ft_toupper.s \
+	ft_puts.s \
+	ft_bzero.s \
+	ft_strcat.s \
+	ft_strlen.s \
+	ft_memset.s \
+	ft_memcpy.s \
+	ft_strdup.s \
+
 OBJ_ASM = $(SRC_ASM:.s=.o)
 FLAGS = -Wall -Werror -Wextra
-CC_ASM = nasm
-CC_C = gcc
-INC = -I inc
+NASM = nasm
 ASM_FLAGS = -f macho64
+AR = ar
+RANLIB = ranlib
 
-all :		$(NAME)
+all : $(NAME)
 
-$(NAME) : 	$(OBJ_ASM)
-	@ar rc $(NAME) $(OBJ_ASM)
-	@ranlib $(NAME)
-
-#$(OBJ_ASM) :	$(SRC_ASM)
-#	nasm -f macho64 -o $(OBJ_ASM) $(SRC_ASM)
+$(NAME) : $(OBJ_ASM)
+	$(AR) rc $(NAME) $(OBJ_ASM)
+	$(RANLIB) $(NAME)
 
 %.o : %.s
-	nasm $(ASM_FLAGS) -o $@ $<
-
-#test :		$(NAME)
-#	$(CC_C) $(FLAGS) -L . -lfts  $(INC) main.c -o test
-
+	$(NASM) $(ASM_FLAGS) -o $@ $<
 clean :
 	rm -f *.o main.o
 

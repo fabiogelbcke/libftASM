@@ -1,16 +1,15 @@
-global _ft_isascii
+global _ft_isdigit
 
 	section .text
 
-_ft_isascii:
-	cmp rdi, 0
+_ft_isdigit:
+	cmp rdi, 48
 	jl false
-	cmp rdi, 127
+	cmp rdi, 57
 	jg false
-
-true:
 	mov rax, 1
 	ret
+
 false:
 	mov rax, 0
 	ret

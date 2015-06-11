@@ -1,8 +1,8 @@
-global _ft_isascii
+global _ft_isalnum
 
 	section .text
 
-_ft_isascii:
+_ft_isalnum:
 	cmp rdi, 97
 	jge is_lower
 	cmp rdi, 65

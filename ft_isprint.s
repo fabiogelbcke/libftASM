@@ -1,16 +1,16 @@
-global _ft_isupper
+global _ft_isprint
 
 	section .text
 
-_ft_isupper:
-	cmp rdi, 101
+_ft_isprint:
+	cmp rdi, 32
 	jl false
-	cmp rdi, 132
+	cmp rdi, 126
 	jg false
-
 	mov rax, 1
 	ret
 
 false:
 	mov rax, 0
 	ret
+	
