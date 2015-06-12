@@ -35,11 +35,15 @@ $(NAME) : $(OBJ_ASM)
 
 %.o : %.s
 	$(NASM) $(ASM_FLAGS) -o $@ $<
+
+test: all
+	gcc -o test main.c libfts.a
+
 clean :
 	rm -f *.o main.o
 
 fclean : clean
-	rm -f libfts.a
+	rm -f libfts.a test
 
 re : fclean all
 
