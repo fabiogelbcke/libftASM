@@ -16,6 +16,9 @@ SRC_ASM =	ft_isupper.s \
 	ft_memcpy.s \
 	ft_strdup.s \
 	ft_cat.s \
+	ft_strcpy.s \
+	ft_putchar.s \
+	ft_putsub.s \
 
 OBJ_ASM = $(SRC_ASM:.s=.o)
 FLAGS = -Wall -Werror -Wextra

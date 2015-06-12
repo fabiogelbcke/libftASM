@@ -1,0 +1,19 @@
+	global _ft_putchar
+
+	section .text
+
+	%define WRITE 0x2000004
+	%define STDOUT 1
+
+_ft_putchar:
+	mov r8, rdi
+	cmp r8b, 0
+	je end
+	mov rax, WRITE
+	mov rdi, STDOUT
+	mov rsi, r8
+	mov rdx, 1
+	syscall
+
+end:
+	ret

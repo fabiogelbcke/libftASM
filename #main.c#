@@ -7,7 +7,7 @@
 
 int main(void)
 {
-		printf("isupper('A') = %d\n", ft_isupper('A'));
+	printf("isupper('A') = %d\n", ft_isupper('A'));
 	printf("isupper('Z') = %d\n", ft_isupper('Z'));
 	printf("isupper('z') = %d\n", ft_isupper('z'));
 	printf("isupper('1') = %d\n", ft_isupper('1'));
