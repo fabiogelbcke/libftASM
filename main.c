@@ -1,4 +1,4 @@
-#include "libftASM.h"
+#include "libfts.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <strings.h>
@@ -61,6 +61,12 @@ int main(void)
 	printf("isprint('~') = %d\n", ft_isprint('~'));
 	printf("isprint(31) = %d\n", ft_isprint(31));
 	printf("isprint(127) = %d\n", ft_isprint(127));
+	printf("isnum('0') = %d\n", ft_isnum('0'));
+	printf("isnum('9') = %d\n", ft_isnum('9'));
+	printf("isnum(0) = %d\n", ft_isnum(0));
+	printf("isnum(9) = %d\n", ft_isnum(9));
+	printf("isnum('a') = %d\n", ft_isnum('a'));
+	printf("isnum('0' - 1) = %d\n", ft_isnum('0' - 1));
 	printf("tolower('A') = %c\n", ft_tolower('A'));
 	printf("tolower('Z') = %c\n", ft_tolower('Z'));
 	printf("tolower('a') = %c\n", ft_tolower('a'));
@@ -111,7 +117,7 @@ int main(void)
 	printf("ft_cat for test.txt:\n----------\n");
 	int fd = open("test.txt", O_RDONLY);
 	ft_cat(fd);
-	printf("----------\nft_putchar ('9') = "); ft_putchar('9');
+	ft_puts("----------\nft_putchar ('9'):"); ft_putchar('9');
 	ft_putchar('\n');
 	ft_puts("ft_putchar('o'):"); ft_putchar('o');
 	ft_putchar('\n');

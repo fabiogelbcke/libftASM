@@ -1,3 +1,15 @@
+#******************************************************************************#
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fschuber <fschuber@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2015/06/12 11:44:12 by fschuber          #+#    #+#              #
+#    Updated: 2015/06/12 12:09:38 by fschuber         ###   ########.fr        #
+#                                                                              #
+#******************************************************************************#
+
 NAME = libfts.a
 SRC_ASM =	ft_isupper.s \
 	ft_isascii.s \
@@ -19,6 +31,7 @@ SRC_ASM =	ft_isupper.s \
 	ft_strcpy.s \
 	ft_putchar.s \
 	ft_putsub.s \
+	ft_isnum.s \
 
 OBJ_ASM = $(SRC_ASM:.s=.o)
 FLAGS = -Wall -Werror -Wextra
@@ -38,6 +51,9 @@ $(NAME) : $(OBJ_ASM)
 
 test: all
 	gcc -o test main.c libfts.a
+
+moulitest:
+	git clone https://github.com/yyang42/moulitest.git
 
 clean :
 	rm -f *.o main.o
