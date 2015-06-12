@@ -7,7 +7,7 @@
 
 int main(void)
 {
-		printf("isupper('A') = %d\n", ft_isupper('A'));
+	printf("isupper('A') = %d\n", ft_isupper('A'));
 	printf("isupper('Z') = %d\n", ft_isupper('Z'));
 	printf("isupper('z') = %d\n", ft_isupper('z'));
 	printf("isupper('1') = %d\n", ft_isupper('1'));
@@ -76,16 +76,12 @@ int main(void)
 	printf("toupper('z' + 1) = %c\n", ft_toupper('z' + 1));
 	printf("toupper('3') = %c\n", ft_toupper('3'));
 	ft_puts("I am using ft_puts to print this string");
-	char *str;
-	str = malloc(sizeof(char) * 11);
-	for (int i = 0; i < 10; i++)
-		str[i] = 'a';
-	str[10] = '\0';
-	ft_puts(str);
 	ft_puts("ft_puts(NULL) = ");
 	ft_puts(NULL);
 	ft_puts("ft_puts(\"0\") = ");
 	ft_puts("0");
+	char *str;
+	printf("char *str = ft_strdup(\"Yippie kay yay, motherfucker!\") = %s\n", str = ft_strdup("Yippie kay yay, motherfucker!"));
 	printf("previous string after using ft_bzero(str, 5) and while(*str == 0) {str++;}:\n");
 	ft_bzero(str, 5);
 	while(*str == 0)
@@ -103,7 +99,7 @@ int main(void)
 	printf("str2 = %s\n", str2);
 	str1 = ft_strcat(str1, str2);
 	printf("ft_strcat(str1, str2): %s\n", str1);
-	printf("%zu\n", ft_strlen(str1));
+	printf("ft_strlen(str1) = %zu\n", ft_strlen(str1));
 	char *str3 = malloc(sizeof(char) * 11);
 	str3[10] = '\0';
 	str3 = ft_memset(str3, 37, 10);
@@ -112,13 +108,24 @@ int main(void)
 	str3[5] = '*';
 	str4 = ft_memcpy(str4, str3, 11);
 	printf("str3[5] = '*'; str4 = ft_memcpy(str4, str3, 11);\nstr4 = %s\n", str4);
-	printf("%s\n", ft_strdup(str4));
+	printf("ft_cat for test.txt:\n----------\n");
 	int fd = open("test.txt", O_RDONLY);
-//	ft_cat(fd);
-	ft_putchar('9');
-	ft_putchar('o');
+	ft_cat(fd);
+	printf("----------\nft_putchar ('9') = "); ft_putchar('9');
 	ft_putchar('\n');
-	ft_putsub("Fabio", 1, 50);
+	ft_puts("ft_putchar('o'):"); ft_putchar('o');
 	ft_putchar('\n');
+	ft_puts("ft_putsub(\"Ecole 42\", 1, 3):"); ft_putsub("Fabio", 1, 3);
+	ft_putchar('\n');
+	ft_puts("ft_putsub(\"Ecole 42\", 0, 30):"); ft_putsub("Fabio", 0, 30);
+	ft_putchar('\n');
+	ft_puts("ft_putsub(\"Ecole 42\", 1, 0):"); ft_putsub("Fabio", 1, 0);
+	ft_putchar('\n');
+	ft_puts("ft_putsub(\"Ecole 42\", 1, 5):"); ft_putsub("Fabio", 1, 5);
+	ft_putchar('\n');
+	ft_puts("ft_putsub(\"Ecole 42\", 3, 60):"); ft_putsub("Fabio", 3, 60);
+	ft_putchar('\n');
+	char *str5 = malloc(15);
+	printf("str5 = malloc(sizeof(char) *15); ft_strcpy(str5, str4) = %s", ft_strcpy(str5, str4));
 	return (0);
 }
