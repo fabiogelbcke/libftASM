@@ -4,6 +4,7 @@ compiling using 'nasm -f macho64'
 No syscalls unless explicitly said otherwise
 
 Required functions (declaration and behaviour exactly as per manual pages):
+
 • bzero
 
 • strcat
