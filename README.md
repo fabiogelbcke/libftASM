@@ -37,10 +37,15 @@ And recreate the command cat from unix shell.
 Extra functions:
 
 -isupper
+
 -islower
+
 -isnum (is number)
+
 -strcpy
+
 -putchar
+
 -putsub (pring substring, parameters: the string, beginning index and substring length)
 
 
